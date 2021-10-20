@@ -9,12 +9,12 @@ using namespace std;
 void StartStatement();
 void GameParmInput();
 void RunGuesses(int rand_num_, int guesses_);
-void RunAgain();
-
-bool again;
+void RunAgain(bool& again);
 
 int main()
 {
+	bool again = true;
+
 	cout << "Welcome to the number guessing program!\n\n";
 	cout << "For this program you will try to guess the number that I (the computer) come up with.\n";
 
@@ -22,7 +22,7 @@ int main()
 	{
 		StartStatement();
 		GameParmInput();
-		RunAgain();
+		RunAgain(again);
 	} while (again);
 
 	return 0;
@@ -81,7 +81,7 @@ void RunGuesses(int rand_num_, int guesses_)
 	}
 }
 
-void RunAgain()
+void RunAgain(bool& again)
 {
 	int again_input;
 	cout << "Would you like to play again? Enter 1 for yes and 2 for no: ";
